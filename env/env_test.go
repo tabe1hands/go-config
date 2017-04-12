@@ -6,6 +6,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/go-redis/redis"
 	"github.com/lestrrat/go-config/env"
 	envload "github.com/lestrrat/go-envload"
 	"github.com/pkg/errors"
@@ -55,6 +56,7 @@ type Spec struct {
 	CustomUnmarshal       Custom          `split_words:"true"`
 	Map                   map[string]string
 	FOOCapitalized        string `split_words:"true"` // this should become FOO_CAPITALIZED
+	Func                  redis.Options
 }
 
 type Embedded struct {
